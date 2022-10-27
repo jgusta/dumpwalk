@@ -1,0 +1,34 @@
+{
+  "name": "janky/dumpwalk",
+  "description": "A better, recursion- and space-friendly var_dump",
+  "keywords": [
+    "debug",
+    "var_dump",
+    "print_r",
+    "dd",
+    "dump"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Janky\\DumpWalk\\": ""
+    },
+    "files": [
+      "functions.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "jgusta",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+
+  }
+}
