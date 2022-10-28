@@ -1,6 +1,6 @@
 <?php
 
-namespace Janky\DumpWalk;
+namespace Janky\Dumpwalk;
 
 use Closure;
 use DateTime;
@@ -13,6 +13,20 @@ use ReflectionFunction;
 use ReflectionObject;
 use ReflectionParameter;
 
+if (!function_exists('dumpwalk')) {
+    /**
+     * This function is like print_r($node, true) but cleaner.
+     *
+     * @param        $node
+     * @param string $indent_string
+     *
+     * @return string
+     * @version 1.0.1
+     */
+    function dumpwalk($node, string $indent_string = '    '): string {
+        return namespace\___dump_walk_recurser($node, $indent_string, 0, null, []);
+    }
+}
 if (!function_exists('dump_walk')) {
     /**
      * This function is like print_r($node, true) but cleaner.
@@ -218,4 +232,14 @@ if (!function_exists('pre_dump')) {
             htmlentities(dump_walk($node)) . "</pre></div>";
     }
 }
+if (!function_exists('predump')) {
+    /**
+     * @param $node
+     * @return string
+     */
+    function predump($node): string {
 
+        return "<div style='background: white;border:3px grey solid;'><div></div><pre>" .
+            htmlentities(dump_walk($node)) . "</pre></div>";
+    }
+}
